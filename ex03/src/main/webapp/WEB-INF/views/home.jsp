@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>
-	아 망했어요. 깃허브에서 바로 수정도 지원합니다.
+	<a href="/board/list">게시판 가기</a>
 </h1>
 
 <P>  문제없음. ${serverTime}. </P>
