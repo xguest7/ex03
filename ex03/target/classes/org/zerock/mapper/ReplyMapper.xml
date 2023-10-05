@@ -20,6 +20,10 @@
 	<delete id="delete">
 	delete TBL_REPLY where rno=#{rno}
 	</delete>
+	
+	<select id="get" resultType="org.zerock.domain.ReplyVO">
+	select * from tbl_reply where rno=#{rno}
+	</select>
 
 </mapper>
 	

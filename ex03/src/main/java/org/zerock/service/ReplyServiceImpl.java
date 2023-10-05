@@ -38,4 +38,10 @@ public class ReplyServiceImpl implements ReplyService {
 		return mapper.update(vo);
 	}
 
+	@Override
+	public ReplyVO get(Long rno) {
+		
+		return mapper.get(rno);
+	}
+
 }

@@ -57,6 +57,18 @@
 <%--footer 파일 넣기 --%>    
 <%@ include file="../includes/footer.jsp" %>
 
+
+<%--댓글처리 자바 스크립트 --%>
+<script src="/resources/js/reply.js?ver=1"></script>
+<script>
+	
+	reply={reply:"자바스크립트로 테스트",replyer:"테스트43", bno:2687007  };
+	//replyService.add(reply);
+	//replyService.getList(2687007, function(a){console.log(a)} );
+	//replyService.del(2);
+	//replyService.modify(6,reply);
+	replyService.get(6,function(a){console.log(a)});
+	</script>
 </body>
 
 </html>

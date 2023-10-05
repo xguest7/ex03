@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.zerock.domain.ReplyVO;
 import org.zerock.domain.SampleVO;
 
 import com.google.gson.Gson;
@@ -56,6 +57,17 @@ public class SampleControllerTests {
 	}
 	//crud  =read,create,update,delete
 	//method =get,post,put,delete
+	
+	//json 만들기
+	@Test
+	public void makeJson() {
+		ReplyVO vo = new ReplyVO();
+		vo.setBno(2687007L);
+		vo.setReply("리플내용");
+		vo.setReplyer("작성자");
+		log.info("json문자열:"+ new Gson().toJson(vo));
+		//{"bno":2687007,"reply":"리플내용","replyer":"작성자"}
+	}
 }
 
 

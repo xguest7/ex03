@@ -14,6 +14,8 @@ public interface ReplyService {
 	    int remove(Long rno);
 	//댓글수정
 	    int modify(ReplyVO vo);
+	//댓글 한게 보기
+	    ReplyVO get(Long rno);  //get /replies/2
 } 
 
 

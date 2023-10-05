@@ -13,4 +13,6 @@ public interface ReplyMapper {
 	int update(ReplyVO vo);
 	//4.지우고
 	int delete(Long rno);
+	
+	ReplyVO get(Long rno);
 }
