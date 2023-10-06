@@ -149,6 +149,7 @@ $("#chat").on("click",".btnDel",function(e){
 //1.댓글내용이 클릭되면 수정이 가능하도록 입력창으로 변경
 $("#chat").on("click",".replyModify",function(e){  
 	console.log("댓글내용클릭");
+	$(this).removeClass(); //다시 클릭이 안되도록  class 속성삭제
 	var replyData=$(this).text(); //클릭한 댓글 내용
 	console.log("댓글내용",replyData);
 	var rno=$(this).prev().text(); // 클릭한 댓글 번호
