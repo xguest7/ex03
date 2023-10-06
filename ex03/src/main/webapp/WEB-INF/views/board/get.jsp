@@ -158,6 +158,7 @@ $("#chat").on("click",".replyModify",function(e){
 	$(this).html(str).children().focus(); //바로 수정이 가능하도록 포커스 이동
 	//2.포커스가 사라지면 수정이 되도록 js 호출
 	//$("#chat").on("blur","input",function(e){  //누적문제 발생함으로
+	//(why? 엘리먼트 삭제시 포커스를 잃었다는 이벤트를 발생함으로)
 	$(':focus').on("blur",function(e){ //현재포커스 기준으로 수정
 		console.log("댓글수정작업");
 		var modifyData=$(this).val(); //변경한 댓글내용읽기
