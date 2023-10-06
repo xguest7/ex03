@@ -109,7 +109,27 @@ var replyService = (function(){
 			}
 		 })
 	}	
+	//시간포맷 처리 함수
+	function displayTime(timeValue){
+		var dateObj=new Date(timeValue);
+		var year=dateObj.getFullYear();
+		var month=dateObj.getMonth()+1;  
+		var date=dateObj.getDate();
+		var day=dateObj.getDay();
+		var hh=dateObj.getHours();
+		var mi=dateObj.getMinutes();
+		var ss=dateObj.getSeconds();
+		var ms=dateObj.getMilliseconds();
+		
+		return hh+":"+ss;
+	}
+
+
 
 	//  이름 : 값(add함수)
-	return {add:add, getList:getList,del:del,modify:modify, get:get};
+	return {add:add, getList:getList,del:del,modify:modify, get:get, time:displayTime};
 })();
+
+
+
+

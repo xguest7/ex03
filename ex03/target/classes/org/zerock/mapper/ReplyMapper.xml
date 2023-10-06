@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="getList" resultType="org.zerock.domain.ReplyVO">
-	select * from tbl_reply where bno=#{bno} order by rno
+	select * from tbl_reply where bno=#{bno} order by rno 
 	</select>
 	
 	<update id="update">
