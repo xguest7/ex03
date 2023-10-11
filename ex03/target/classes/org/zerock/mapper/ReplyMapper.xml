@@ -24,6 +24,10 @@
 	<select id="get" resultType="org.zerock.domain.ReplyVO">
 	select * from tbl_reply where rno=#{rno}
 	</select>
+	
+	<select id="bnoCount" resultType="long">
+		select count(DISTINCT bno) from tbl_reply
+	</select>
 
 </mapper>
 	

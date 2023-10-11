@@ -15,4 +15,7 @@ public interface ReplyMapper {
 	int delete(Long rno);
 	
 	ReplyVO get(Long rno);
+	
+	//보너스 리플이 달린 글개수
+	Long bnoCount();
 }

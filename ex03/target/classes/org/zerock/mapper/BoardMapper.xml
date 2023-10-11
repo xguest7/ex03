@@ -34,15 +34,18 @@
 	
 	<select id="getListWithPaging" resultType="org.zerock.domain.BoardVO">
 		<![CDATA[ 
-		select bno,title,writer,regdate,updatedate,good
-		from (select /*+INDEX_DESC(tbl_board tbl_board_pk) */ 
-     		         rownum rn,bno,title,writer,regdate,updatedate,good 
-     		  from tbl_board where
+		select bno,title,replycount,writer,regdate,updatedate,good
+        from (
+			select bno,title,writer,regdate,updatedate,good
+			from (select /*+INDEX_DESC(tbl_board tbl_board_pk) */ 
+	     		         rownum rn,bno,title,writer,regdate,updatedate,good 
+	     		  from tbl_board    where
      	]]>
 		<include refid="criteria"></include>
      	<![CDATA[	 
      		  rownum <= #{pageNum} * #{amount})
-		where rn>(#{pageNum}-1) * #{amount} 
+		where rn>(#{pageNum}-1) * #{amount} )left join ( select bno,count(*) replycount from tbl_reply
+        group by bno) using(bno)
 		]]>
 	</select>  
 
@@ -112,6 +115,20 @@
 	<update id="good">
 		update tbl_board set good=good+1 where bno=#{bno}
 	</update>
+	
+	<select id="bestBoard" resultType="org.zerock.domain.BestBoard">
+	<![CDATA[ 
+	select title,cn rcount
+	from  tbl_board 
+     join
+     (select *
+      from(select bno,count(*) cn
+           from(select * from TBL_REPLY where updatedate > (select sysdate-(1/24) from dual ))
+           group by bno order by cn desc) 
+      where rownum<4 )
+      using(bno)
+      ]]>
+	</select>
 
 </mapper>
 	

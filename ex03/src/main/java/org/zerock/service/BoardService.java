@@ -3,6 +3,7 @@ package org.zerock.service;
 import java.util.Date;
 import java.util.List;
 
+import org.zerock.domain.BestBoard;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 
@@ -28,6 +29,9 @@ public interface BoardService {
 	
 	//현재시간
 	Date now();
+	
+	//실시간 인기글
+	List<BestBoard> bestBoard();
 }
 
 

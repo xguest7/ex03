@@ -45,6 +45,11 @@ public class ReplyerMapperTests {
 			mapper.getList(2687007L).forEach(x->log.info(x));
 		}
 		
+		@Test 
+		public void testbnoCount() {
+			log.info("리플이 달린글 개수"+mapper.bnoCount());
+		}
+		
 }
 
 

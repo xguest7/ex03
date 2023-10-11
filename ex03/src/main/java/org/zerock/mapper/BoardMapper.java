@@ -3,6 +3,7 @@ package org.zerock.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.zerock.domain.BestBoard;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.HourVO;
@@ -54,4 +55,7 @@ public interface BoardMapper {
 	
 	//게시글 검색 (뒤에)
 	
+	
+	//1시간동안의 인기글 댓글기준
+	List<BestBoard> bestBoard();
 }

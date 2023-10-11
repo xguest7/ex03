@@ -10,6 +10,7 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
+import org.zerock.service.ReplyService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -21,6 +22,7 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	
 	BoardService service; //생성자 주입
+	ReplyService replyService;
 
 	@GetMapping("/list") //전체 목록 board/list (get)
 	public void list(Model model,Criteria cri) {
@@ -28,6 +30,9 @@ public class BoardController {
 		model.addAttribute("list", service.getList(cri)); //글목록
 		model.addAttribute("pageMaker", new PageDTO(cri, service.count(cri)));    //페이지바 정보
 		model.addAttribute("now", service.now());
+		model.addAttribute("bnoCount", replyService.bnoCount());;
+		
+
 		// -> board/list.jsp
 	}
 	
@@ -109,7 +114,15 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-
+	@GetMapping("/newSearch")
+	public void newSearch() {
+		
+	}
+	
+	@GetMapping("bestboard")
+	public void bestboard() {
+		
+	}
  
 }
 

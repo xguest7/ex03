@@ -16,6 +16,9 @@ public interface ReplyService {
 	    int modify(ReplyVO vo);
 	//댓글 한게 보기
 	    ReplyVO get(Long rno);  //get /replies/2
+	    
+	//댓글달린 글 개수
+	    Long bnoCount();
 } 
 
 
