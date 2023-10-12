@@ -125,7 +125,7 @@
       from(select bno,count(*) cn
            from(select * from TBL_REPLY where updatedate > (select sysdate-(1/24) from dual ))
            group by bno order by cn desc) 
-      where rownum<4 )
+      where rownum<11 )
       using(bno)
       ]]>
 	</select>
